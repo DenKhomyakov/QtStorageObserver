@@ -9,7 +9,6 @@ CONFIG += c++17 cmdline
 SOURCES += \
         byfiletypecalculationstrategy.cpp \
         byfoldercalculationstrategy.cpp \
-        calculationstrategy.cpp \
         main.cpp
 
 # Default rules for deployment.
