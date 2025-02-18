@@ -19,4 +19,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     byfiletypecalculationstrategy.h \
     byfoldercalculationstrategy.h \
-    calculationstrategy.h
+    calculationstrategy.h \
+    context.h
