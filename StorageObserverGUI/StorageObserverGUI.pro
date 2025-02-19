@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     calculation.cpp \
+    datamodel.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     calculation.h \
+    datamodel.h \
     mainwindow.h
 
 FORMS += \
