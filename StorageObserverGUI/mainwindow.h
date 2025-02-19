@@ -1,14 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QWidget>
+#include <QTableView>
+#include <QTreeView>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QFileSystemModel>
+#include <QLabel>
+#include <QComboBox>
+#include "calculation.h"
+#include "datamodel.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QWidget {
     Q_OBJECT
 
 public:
@@ -16,6 +20,23 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    DataModel model;
+    QTableView* tableView;
+    QFileSystemModel* systemModel;
+    QTreeView* treeView;
+
+    QLabel* strategyLabel;
+    QComboBox* strategyBox;
+
+    QHBoxLayout* panelLayout;
+    QHBoxLayout* viewsLayout;
+    QVBoxLayout* mainLayout;
+
+    Context* strategy;
+
+private slots:
+    void selectedSlot(const QItemSelection& selected, const QItemSelection& deselected);
+    void strategyBoxSlot(int strategy);
 };
+
 #endif // MAINWINDOW_H
