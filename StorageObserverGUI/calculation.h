@@ -44,6 +44,10 @@ public:
         return strategy->calculationMethod(path);
     }
 
+    void setStrategy(CalculationStrategy* strategy) {
+        this->strategy = strategy;
+    }
+
 private:
     CalculationStrategy* strategy;
 };

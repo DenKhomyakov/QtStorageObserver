@@ -45,3 +45,29 @@ QList<TableModel> fillTable(QMap<QString, qint64> map) {
 
     return result;
 }
+
+void MainWindow::selectedSlot(const QItemSelection& selected, const QItemSelection& deselected) {
+    Q_UNUSED(selected);
+    Q_UNUSED(deselected);
+
+    QModelIndex index = treeView->selectionModel()->currentIndex();
+
+    if (index.isValid()) {
+        model.setModel(fillTable(strategy->calculationMethod(systemModel->filePath(index))));
+    }
+}
+
+void MainWindow::strategyBoxSlot(int strategy) {
+    switch (strategy) {
+    case 0:
+        this->strategy->setStrategy(new ByFolderCalculationStrategy);
+        break;
+
+    case 1:
+        this->strategy->setStrategy(new ByFileTypeCalculationStrategy);
+        break;
+    }
+
+    QModelIndex index = treeView->selectionModel()->currentIndex();
+    model.setModel(fillTable(this->strategy->calculationMethod(systemModel->filePath(index))));
+}
