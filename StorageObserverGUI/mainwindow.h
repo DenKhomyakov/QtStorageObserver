@@ -20,7 +20,7 @@ public:
     ~MainWindow();
 
 private:
-    DataModel model;
+    DataModel* model;
     QTableView* tableView;
     QFileSystemModel* systemModel;
     QTreeView* treeView;
