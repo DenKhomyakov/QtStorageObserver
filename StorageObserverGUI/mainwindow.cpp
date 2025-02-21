@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
     setWindowTitle("Storage Observer");
     this->strategy = new Context(new ByFolderCalculationStrategy);
     model = new DataModel(this);
+    setWindowIcon(QIcon("Storage Observer.png"));
 
     systemModel = new QFileSystemModel(this);
     systemModel->setFilter(QDir::NoDotAndDotDot | QDir::AllDirs);

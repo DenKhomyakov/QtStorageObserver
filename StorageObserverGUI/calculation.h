@@ -1,7 +1,6 @@
 #ifndef CALCULATION_H
 #define CALCULATION_H
 
-#include <iostream>
 #include <QDir>
 #include <QFileInfo>
 #include <QMap>
@@ -18,7 +17,6 @@ class ByFolderCalculationStrategy : public CalculationStrategy {
 public:
     QMap<QString, qint64> calculationMethod(QString path);
 
-private:
     qint64 getFolderSize(QString path, qint64 folderSize);
 };
 
@@ -26,7 +24,6 @@ class ByFileTypeCalculationStrategy : public CalculationStrategy {
 public:
     QMap<QString, qint64> calculationMethod(QString path);
 
-private:
     QMap<QString, qint64> getFileTypesSize(QString path, QMap<QString, qint64>& map);
 };
 
@@ -51,6 +48,5 @@ public:
 private:
     CalculationStrategy* strategy;
 };
-
 
 #endif // CALCULATION_H

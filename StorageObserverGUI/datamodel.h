@@ -3,11 +3,12 @@
 
 #include <QObject>
 #include <QList>
+#include <QString>
 #include <QAbstractTableModel>
 
 class TableModel {
 public:
-    TableModel(QString name = "Name", QString size = "size", QString percent = "percent") : name(name), size(size), percent(percent) {}
+    TableModel(QString name = "Name", QString size = "Size", QString percent = "Percent") : name(name), size(size), percent(percent) {}
 
     QString name;
     QString size;
