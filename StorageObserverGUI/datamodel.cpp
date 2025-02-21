@@ -13,11 +13,11 @@ int DataModel::rowCount(const QModelIndex& parent) const {
 int DataModel::columnCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
 
-    return dataModel.count() + 1;
+    return PERCENT + 1;
 }
 
 QVariant DataModel::data(const QModelIndex& index, int role) const {
-    if (index.isValid() || dataModel.count() <= index.row() || (role != Qt::DisplayRole && role != Qt::EditRole)) {
+    if (!index.isValid() || dataModel.count() <= index.row() || (role != Qt::DisplayRole && role != Qt::EditRole)) {
         return QVariant();
     }
 

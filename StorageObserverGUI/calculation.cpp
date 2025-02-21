@@ -27,7 +27,7 @@ QMap<QString, qint64> ByFolderCalculationStrategy::calculationMethod(QString pat
 }
 
 qint64 ByFolderCalculationStrategy::getFolderSize(QString path, qint64 folderSize) {
-    QDir directory(path);
+    QDir directory = QDir(path);
 
     foreach (QFileInfo file, directory.entryInfoList(QDir::Files | QDir::NoDotAndDotDot | QDir::Hidden | QDir::NoSymLinks)) {
         folderSize += file.size();
